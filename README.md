@@ -1,2 +1,6 @@
 # codingEnv
-my coding environment setup on Linux with one command
+Run the below command
+
+   ```sh
+   bash ./setup.sh
+   ```
