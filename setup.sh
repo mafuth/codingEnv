@@ -12,5 +12,15 @@ eval 'sudo apt install ./code_1.72.2-1665614327_amd64.deb -y'
 echo 'Finalising packages'
 eval 'sudo apt update'
 eval 'sudo apt upgrade -y'
-eval 'sudo apt upgrade -y'
 echo 'Enviroment setup done'
+echo 'Git setup'
+read -p "Enter your github username: " username
+read -p "Enter your github email: " email
+eval 'git config --global user.name "'$username'"'
+eval 'git config --global user.email "'$email'"'
+eval 'ssh-keygen -t rsa -C "'$email'"'
+echo 'Your github ssh key is:'
+eval 'cat ~/.ssh/id_rsa.pub'
+eval 'x-www-browser https://github.com/settings/keys'
+read -p "Add you key to https://github.com/settings/keys and press enter"
+eval 'ssh -T git@github.com'
